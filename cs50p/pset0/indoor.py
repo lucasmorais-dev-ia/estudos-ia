@@ -1,1 +1,1 @@
-print(input("type something: ").lower()) 
+print(input("type something: ").lower())

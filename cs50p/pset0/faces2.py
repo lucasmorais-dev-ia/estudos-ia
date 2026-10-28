@@ -1,6 +1,5 @@
 def main():
-    print(convert(input("type something ")))
-
+    print(convert(input("type something? ")))
 
 
 def convert(text):
