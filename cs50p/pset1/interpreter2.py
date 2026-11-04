@@ -1,4 +1,4 @@
-expression = input("expression: ")
+expression = input("what's your expression? ")
 
 x, y, z = expression.split(" ")
 
@@ -14,4 +14,5 @@ elif y == "*":
 elif y == "/":
     result = x / z
 
-print(round(result, 1))
+
+print(round(result,  1))
