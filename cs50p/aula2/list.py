@@ -1,4 +1,4 @@
 students = ["lucas", "luanna", "maria"]
 
-for i in range (len(students)):
+for i in range (3):
     print(i + 1, students[i])

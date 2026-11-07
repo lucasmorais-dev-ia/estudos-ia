@@ -3,7 +3,7 @@ def main():
 
     for i in range(quantidade):
 
-        print(f"Caipinha {i + 1} saindo")
+        print(f"Caipirinha {i + 1} saindo")
 
 def pegar_quantidade():
     while True: 
