@@ -3,7 +3,7 @@ students = {
     "lucas": "flaviohouse",
     "luanna": "flaviohouse", 
     "luciana": "flaviohouse",
-    "renan": "lulahouse",
+    "renan": "lulahouse"
 }
 
 for student in students:
