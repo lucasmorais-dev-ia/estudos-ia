@@ -5,13 +5,10 @@ from tabulate import tabulate
 
 
 def main():
-    # nada depois do nome do programa
     if len(sys.argv) < 2:
         sys.exit("Too few command-line arguments")
-    # mais de um arquivo
     if len(sys.argv) > 2:
         sys.exit("Too many command-line arguments")
-    # o nome não termina em .csv
     if not sys.argv[1].endswith(".csv"):
         sys.exit("Not a CSV file")
     try: 
