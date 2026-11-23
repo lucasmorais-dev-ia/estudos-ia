@@ -1,3 +1,4 @@
+import json
 import httpx
 import csv
 
@@ -25,3 +26,7 @@ with open("clima.csv", "w", newline="") as file:
     writer.writeheader()
     for result in results:
         writer.writerow(result)
+
+# json.dump = escrever a lista no arquivo, no formato JSON
+with open("clima.json", "w", encoding="utf-8") as file:
+    json.dump(results, file, ensure_ascii=False, indent=2)
