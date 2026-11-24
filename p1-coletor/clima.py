@@ -1,3 +1,4 @@
+import time
 import csv
 import json
 import sys
@@ -19,18 +20,24 @@ results = []
 for city in cities:
     params = {"latitude": city["latitude"], "longitude": city["longitude"], "current": "temperature_2m"}
 
-    try:
+    # repetir 3 vezes:
+        # tentar buscar a cidade
+        # se deu certo: sai da repetição (break)
+        # se deu erro: Espera alguns segundos e tenta de novo
+    # se nenhuma tentativa deu certo: "Não consegui buscar Cuiabá" depois ele pula para a proxima cidade(continue)
 
-        # timeout = espera no máximo 10 segundos pela resposta
-        response = httpx.get(url, params=params, timeout=10)
-
-        # raise_for_status = se a API respondeu com erro (como 404 ou 500), vira um erro do Python
-        response.raise_for_status()
-
-    except httpx.HTTPError:
-        print(f"Não consegui buscar {city["name"]}")
-
-        # continue = pula o resto desta volta e vai para a próxima cidade
+            # attempt = tentativa
+    for attempt in range(3):
+        try:
+            response = httpx.get(url, params=params, timeout=10)
+            response.raise_for_status()
+            break
+        except httpx.HTTPError:
+            if attempt < 2:
+                print(f"Tentativa {attempt + 1} falhou, tentando de novo...")
+                time.sleep(3)
+    else:
+        print(f"Não consegui buscar {city['name']}")
         continue
 
     data = response.json()
